@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <h2 class="text-xl font-bold flex mb-5 ml-[100px] mt-[8px]">Riwayat Booking</h2>
+    <header class="bg-gray-200 py-4">
+  <h1 class="text-left text-lg font-medium pl-4">Riwayat Booking</h1>
+</header>
 
     <div class="bg-white shadow p-8">
         <div class="bg-white shadow rounded p-4">
@@ -17,14 +19,20 @@
                             <th class="px-4 py-2">Jadwal Treatment</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="bg-white-100">
-                            <td class="px-4 py-2">Booking 15</td>
-                            <td class="px-4 py-2">Paket Herbal Facial</td>
-                            <td class="px-4 py-2">Rp. 110.000</td>
-                            <td class="px-4 py-2">08 April 2025 | 15:00 WIB</td>
-                        </tr>
-                    </tbody>
+                   <tbody>
+  @forelse($bookings as $booking)
+    <tr class="bg-white">
+        <td class="px-4 py-2">Booking {{ $booking->id }}</td>
+        <td class="px-4 py-2">{{ $booking->treatment }}</td>
+        <td class="px-4 py-2">Rp.1000000</td>
+        <td class="px-4 py-2">{{ \Carbon\Carbon::parse($booking->tanggal)->format('d F Y') }} | {{ \Carbon\Carbon::parse($booking->jam)->format('H:i') }} WIB</td>
+    </tr>
+  @empty
+    <tr>
+      <td colspan="4" class="text-center py-4">Belum ada data booking.</td>
+    </tr>
+  @endforelse
+</tbody>
                 </table>
             </div>
         </div>

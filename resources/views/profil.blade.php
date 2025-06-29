@@ -4,10 +4,12 @@
 
   <!-- Content -->
      <!-- Title -->
-  <h2 class="text-lg font-semibold text-gray-700 px-6 mt-6">Profil</h2>
+  <header class="bg-gray-200 py-4">
+  <h1 class="text-left text-lg font-medium pl-4">Profil</h1>
+</header>
 
   <!-- Profile Section -->
- <div class="max-w-4xl mx-auto mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-white border border-black rounded-lg shadow">
+ <div class="max-w-4xl mx-auto mt-10 mb-10 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-white border border-black rounded-lg shadow">
     <!-- Left: Icon -->
     <div class="flex justify-center items-center">
       <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Icon" class="w-40 h-40">

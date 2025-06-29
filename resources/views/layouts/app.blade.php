@@ -11,10 +11,14 @@
 
     <!-- Header -->
     <header class="bg-[#6E7F5E] text-white p-4 flex justify-between items-center">
-        <div class="flex items-center ">
-            <img src="{{ asset('images/ig.png') }}" alt="Hijau Spa Logo" class="w-5 h-5" />
-            <span class="text-xl font-semibold">Hijau Spa</span>
-        </div>
+    <div class="flex items-center gap-x-2">
+        <img src="{{ asset('images/ig.png') }}" alt="IG Icon" class="w-5 h-5" />
+        <span class="text-xl font-semibold">Hijau Spa</span>
+
+        <img src="{{ asset('images/wa.png') }}" alt="WA Icon" class="w-4 h-4 ml-4" />
+        <span class="text-xl font-semibold">082181662455</span>
+    </div>
+       
         <div>
     @if (Request::is('/'))
        <a href="/login" class="bg-[#D2D0A0] text-green-800 px-3 py-1 rounded inline-block">LOG IN</a>
@@ -46,7 +50,7 @@
 @endunless
 
     <!-- MAIN CONTENT -->
-    <main class="p-4">
+    <main class="p-full">
         @yield('content')
     </main>
 

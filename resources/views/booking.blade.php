@@ -6,7 +6,7 @@
   <!-- Content -->
    <body class="bg-gray-50 py-10">
 
-  <div class="max-w-md mx-auto bg-[rgb(83,125,93)] rounded-xl text-white p-6 shadow-lg">
+  <div class="max-w-md mx-auto bg-[rgb(83,125,93)] rounded-xl text-white p-6 shadow-lg mb-10 mt-10">
     <h2 class="text-center text-lg font-semibold mb-6">Input Data Booking</h2>
 
     <form action="#" method="POST" class="space-y-4">
@@ -52,7 +52,9 @@
     @error('therapist') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
   </div>
 
-  <button type="submit" class="mt-4 px-4 py-2 bg-green-600 text-white rounded">Pesan Sekarang</button>
+  <a href="/pembayaran" class="mt-4 inline-block px-4 py-2 bg-green-600 text-white rounded">
+  Pesan Sekarang
+</a>
 </form>
 
 @endsection
