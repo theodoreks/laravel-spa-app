@@ -16,6 +16,7 @@
             <h3 class="text-lg font-semibold text-[rgb(83,125,93)]">{{ $item->judul }}</h3>
             <p class="text-sm text-gray-600 mt-2">{{ $item->deskripsi }}</p>
             <button class="mt-4 bg-[rgb(83,125,93)] text-white px-4 py-2 rounded text-sm">Cek Detail</button>
+            <button class="mt-4 bg-[rgb(83,125,93)] text-white px-4 py-2 rounded text-sm">Booking </button>
         </div>
     </div>
 @endforeach

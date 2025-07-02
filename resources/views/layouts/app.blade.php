@@ -21,9 +21,9 @@
        
         <div>
     @if (Request::is('/'))
-       <a href="/login" class="bg-[#D2D0A0] text-green-800 px-3 py-1 rounded inline-block">LOG IN</a>
+       <a href="/login" class="bg-[#899D77] text-green-800 px-3 py-1 rounded inline-block">LOG IN</a>
     @else
-        <button class="bg-[#D2D0A0] text-green-800 px-3 py-1 rounded">LOG OUT</button>
+        <button class="bg-[#899D77] text-green-800 px-3 py-1 rounded">LOG OUT</button>
     @endif
 </div>
     </header>
