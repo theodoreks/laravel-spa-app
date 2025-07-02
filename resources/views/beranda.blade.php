@@ -5,8 +5,8 @@
 <!-- Content -->
 
     <!-- Hero Banner -->
-    <section class="relative h-72 bg-cover bg-center" style="background-image: url('{{ asset('images/hero.jpg') }}');">
-        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <section class="relative h-72 bg-cover bg-center" style="background-image: url('{{ asset('images/hero2.jpg') }}');">
+        <div class="absolute inset-0   bg-opacity-40 flex items-center justify-center">
             <h1 class="text-white text-4xl font-bold">Hijau Spa</h1>
         </div>
     </section>
@@ -22,6 +22,7 @@
                     <h3 class="text-lg font-semibold text-[rgb(83,125,93)]">{{ $item->judul }}</h3>
                     <p class="text-sm text-gray-600 mt-2">{{ $item->deskripsi }}</p>
                     <button class="mt-4 bg-[rgb(83,125,93)] text-white px-4 py-2 rounded text-sm">Cek Detail</button>
+                    <button class="mt-4 bg-[rgb(83,125,93)] text-white px-4 py-2 rounded text-sm">Booking </button>
                 </div>
             </div>
         @endforeach

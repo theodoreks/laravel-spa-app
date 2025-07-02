@@ -18,7 +18,7 @@
       <p><strong>No Handphone</strong> : 08574547091</p>
       <p><strong>Booking</strong> : 07 April 2025 | 14.45 WIB</p>
       <p><strong>Jadwal Treatment</strong> : 08 April 2025 | 15.00 WIB</p>
-      <p><strong>Jenis Treatment</strong> : Paket Herbal Facial (Rp. 111.000)</p>
+      <p><strong>Jenis Treatment</strong> : Paket Herbal Facial (Rp. 100.000)</p>
       <p><strong>Therapist</strong> : Suci</p>
       <p><strong>Status</strong> : Belum Bayar</p>
     </div>
@@ -30,7 +30,7 @@
         @csrf
         <div>
           <label class="block mb-1">Jumlah Bayar</label>
-          <input type="text" value="Rp. 111.000" class="w-full border px-3 py-2 rounded text-black bg-white" readonly>
+          <input type="text" value="Rp. 100.000" class="w-full border px-3 py-2 rounded text-black bg-white" readonly>
         </div>
         <div>
           <label class="block mb-1">Bukti Pembayaran</label>
