@@ -1,37 +1,44 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 // Controller Utama & Karyawan
 use App\Http\Controllers\{
     AuthController,
     EventKegiatanController,
     AbsensiKaryawanController,
     AktivitasKaryawanController,
-    PaketController,
     LaporanController,
     InventoryController,
     BerandaKaryawanController,
     BookingTreatmentController,
     BookingSelesaiController
 };
+
+// Controller Karyawan (untuk mengelola promo)
+use App\Http\Controllers\karyawan\PromoController as KaryawanPromoController;
+
 // Controller Owner
 use App\Http\Controllers\owner\{
     OwnerController,
-    KaryawanController as OwnerKaryawanController, 
-    CostumerController as OwnerCostumerController 
+    KaryawanController as OwnerKaryawanController,
+    CustomerController as OwnerCustomerController
 };
+
 // Controller Customer
 use App\Http\Controllers\customer\{
     LandingController,
     BerandaController,
     EventController,
-    PromoController,
     KritikController,
     BookingController,
     ProfilController,
     RiwayatController,
-    PembayaranController
+    PembayaranController,
+    PromoController as CustomerPromoController // Alias untuk customer
 };
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,17 +50,18 @@ use App\Http\Controllers\customer\{
 // RUTE PUBLIK (Dapat diakses semua orang tanpa login)
 // =========================================================================
 Route::get('/', [LandingController::class, 'landing'])->name('landing');
-Route::get('/event-list', [EventController::class, 'event'])->name('customer.event'); // URL lebih jelas
-Route::get('/promo-list', [PromoController::class, 'promo'])->name('customer.promo'); // URL lebih jelas
+Route::get('/event-list', [EventController::class, 'event'])->name('customer.event'); 
+Route::get('/promo-list', [CustomerPromoController::class, 'promo'])->name('customer.promo'); 
 
-// =========================================================================
-// RUTE AUTENTIKASI (Login, Register, Logout untuk SEMUA ROLE)
-// =========================================================================
+// RUTE AUTENTIKASI
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Rute untuk menampilkan form
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register.form');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+// Rute untuk memproses data form, harus ada name('register')
+Route::post('/register', [AuthController::class, 'register'])->name('register'); 
 
 // =========================================================================
 // SEMUA RUTE YANG MEMERLUKAN LOGIN
@@ -65,7 +73,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
         Route::get('/dashboard', [OwnerController::class, 'index'])->name('dashboard');
         // Tambahkan rute khusus owner lainnya di sini
         Route::resource('karyawan', OwnerKaryawanController::class);
-        Route::resource('costumer', OwnerCostumerController::class);
+        Route::resource('customer', OwnerCustomerController::class);
     });
 
     // ========== RUTE UNTUK ROLE: KARYAWAN ==========
@@ -74,7 +82,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
         // Tambahkan rute khusus karyawan lainnya di sini
         Route::resource('event', EventKegiatanController::class)->except(['show']);
         Route::resource('absensi', AbsensiKaryawanController::class)->except(['show']);
-        Route::resource('paket', PaketController::class);
+        Route::resource('promo', KaryawanPromoController::class);
         Route::resource('laporan', LaporanController::class);
         Route::resource('inventory', InventoryController::class);
         Route::get('/booking/selesai', [BookingSelesaiController::class, 'selesai'])->name('boking.selesai');

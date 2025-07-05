@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles; 
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    // 2. USE THE TRAIT
+    use HasRoles, HasFactory, Notifiable;
 
     /**
-     * Nama tabel yang digunakan oleh model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
-
-    /**
-     * Atribut yang dapat diisi secara massal.
+     * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
@@ -32,7 +27,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Atribut yang harus disembunyikan saat serialisasi.
+     * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
@@ -42,11 +37,14 @@ class User extends Authenticatable
     ];
 
     /**
-     * Atribut yang harus di-cast ke tipe data tertentu.
+     * Get the attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'password' => 'hashed',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+        ];
+    }
 }

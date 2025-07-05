@@ -15,7 +15,20 @@
       <p class="text-sm text-gray-600">Isi data berikut untuk mendaftar</p>
     </div>
 
-    <form action="{{ route('register') }}" method="POST" class="space-y-4">
+        {{-- TAMBAHKAN KODE BLOK INI --}}
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Oops! Terjadi kesalahan.</strong>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    {{-- AKHIR DARI BLOK KODE --}}
+
+   <form action="{{ route('register') }}" method="POST" class="space-y-4">
   @csrf
 
   <!-- Nama Lengkap -->
@@ -65,10 +78,10 @@
   </div>
 
   <!-- Tombol Daftar -->
-  <button type="submit"
-    class="w-full bg-[#5A7A48] text-white py-2 rounded-lg hover:bg-[#47633B] transition font-semibold">
-    Daftar
-  </button>
+ <button type="submit"
+            class="w-full bg-[#5A7A48] text-white py-2 rounded-lg hover:bg-[#47633B] transition font-semibold">
+            Daftar
+        </button>
 </form>
 
 

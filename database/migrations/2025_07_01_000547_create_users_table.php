@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('no_hp', 20);
             $table->string('username', 50)->unique();
             $table->string('password');
-            $table->enum('role', ['costumer', 'karyawan', 'owner'])->default('costumer');
+            $table->enum('role', ['customer', 'karyawan', 'owner'])->default('customer');
             $table->rememberToken();
             $table->timestamps();
         });

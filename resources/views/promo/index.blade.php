@@ -14,7 +14,7 @@
         <h2 class="text-lg font-medium">
             <i class=""></i> Daftar Promo
         </h2>
-        <a href="{{ route('paket.create') }}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+        <a href="{{ route('promo.create') }}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
             <i class="fas fa-plus mr-1"></i> Tambah Promo
         </a>
     </div>
@@ -23,7 +23,7 @@
         <thead class="bg-gray-100">
             <tr>
                 <th class="border px-4 py-2">NO</th>
-                <th class="border px-4 py-2">Paket</th>
+                <th class="border px-4 py-2">Nama Promo</th> 
                 <th class="border px-4 py-2">Harga</th>
                 <th class="border px-4 py-2">Durasi</th>
                 <th class="border px-4 py-2">Foto</th>
@@ -31,23 +31,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($pakets as $index => $paket)
+            @foreach ($promos as $index => $promo)
                 <tr class="text-center">
                     <td class="border px-4 py-2">{{ $index + 1 }}</td>
-                    <td class="border px-4 py-2">{{ $paket->nama_paket }}</td>
-                    <td class="border px-4 py-2">{{ number_format($paket->harga) }}</td>
-                    <td class="border px-4 py-2">{{ $paket->durasi }} Menit</td>
+                    <td class="border px-4 py-2">{{ $promo->nama_promo }}</td>
+                    <td class="border px-4 py-2">Rp {{ number_format($promo->harga) }}</td>
+                    <td class="border px-4 py-2">{{ $promo->durasi }} Menit</td>
                     <td class="border px-4 py-2">
-                        <img src="{{ asset('storage/' . $paket->foto) }}" alt="foto" class="w-12 h-12 object-cover mx-auto" />
+                        <img src="{{ asset('storage/' . $promo->foto) }}" alt="foto" class="w-12 h-12 object-cover mx-auto" />
                     </td>
                     <td class="border px-4 py-2">
                         <div class="flex justify-center items-center space-x-1">
-                            <!-- Tombol Edit Kecil -->
-                            <a href="{{ route('paket.edit', $paket->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded-md shadow text-xs">
+                            <a href="{{ route('promo.edit', $promo->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded-md shadow text-xs">
                                 <i class="fas fa-edit text-xs"></i>
                             </a>
-                            <!-- Tombol Hapus Kecil -->
-                            <form action="{{ route('paket.destroy', $paket->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
+                            <form action="{{ route('promo.destroy', $promo->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-md shadow text-xs">

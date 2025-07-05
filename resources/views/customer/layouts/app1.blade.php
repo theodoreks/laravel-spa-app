@@ -23,7 +23,10 @@
     @if (Request::is('/'))
        <a href="/login" class="bg-[#D2D0A0] text-green-800 px-3 py-1 rounded inline-block">LOG IN</a>
     @else
-        <button class="bg-[#D2D0A0] text-green-800 px-3 py-1 rounded">LOG OUT</button>
+        <form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit" class="bg-[#D2D0A0] text-green-800 px-3 py-1 rounded">LOG OUT</button>
+</form>
     @endif
 </div>
     </header>
@@ -37,14 +40,14 @@
     </div>
     <nav class="text-grey-800 flex items-center text-sm w-full justify-between ml-6">
         <div class="space-x-4">
-            <a href="/beranda" class="hover:underline">Beranda</a>
-            <a href="/profil" class="hover:underline">Profil</a>
-            <a href="/promo" class="hover:underline">Promo</a>
-            <a href="/riwayat" class="hover:underline">Riwayat Booking</a>
-            <a href="/kritik" class="hover:underline">Kritik dan Saran</a>
-            <a href="/event" class="hover:underline">Event dan Kolaborasi</a>
-        </div>
-        <a href="/booking" class="bg-[#6E7F5E] text-white px-3 py-1 rounded text-xs ml-4">Booking Sekarang</a>
+    <a href="{{ route('customer.beranda') }}" class="hover:underline">Beranda</a>
+    <a href="{{ route('customer.profil.index') }}" class="hover:underline">Profil</a>
+    <a href="{{ route('customer.promo') }}" class="hover:underline">Promo</a>
+    <a href="{{ route('customer.booking.history') }}" class="hover:underline">Riwayat Booking</a>
+    <a href="{{ route('customer.kritik.index') }}" class="hover:underline">Kritik dan Saran</a>
+    <a href="{{ route('customer.event') }}" class="hover:underline">Event dan Kolaborasi</a>
+</div>
+<a href="{{ route('customer.booking.create') }}" class="bg-[#6E7F5E] text-white px-3 py-1 rounded text-xs ml-4">Booking Sekarang</a>
     </nav>
 </div>
 @endunless

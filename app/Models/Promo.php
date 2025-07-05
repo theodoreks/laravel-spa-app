@@ -2,12 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Promo extends Model
 {
-   
-    protected $table = 'promo';
+    use HasFactory;
 
-    protected $fillable = ['judul', 'deskripsi', 'gambar'];
+    protected $table = 'promos'; // Nama tabel di database
+
+    protected $fillable = [
+        'nama_promo',
+        'deskripsi',
+        'harga',
+        'durasi',
+        'foto',
+    ];
 }

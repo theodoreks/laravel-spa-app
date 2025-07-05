@@ -45,7 +45,7 @@
 <!-- Section Kritik dan Saran -->
 <section class="bg-gray-100 py-10 px-4">
   <div class="max-w-4xl mx-auto">
-    <h2 class="text-center text-xl font-semibold text-gray-800 mb-6 border-b pb-2">Costumer Kritik dan Saran</h2>
+    <h2 class="text-center text-xl font-semibold text-gray-800 mb-6 border-b pb-2">Customer Kritik dan Saran</h2>
     
     <div class="bg-white rounded-lg shadow p-6 space-y-4">
 

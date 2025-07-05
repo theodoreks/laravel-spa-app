@@ -47,8 +47,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/datacostumer" class="flex items-center px-5 py-2 hover:text-hijauMuda">
-                            <i data-lucide="user" class="w-4 h-4 mr-2"></i> Data Costumer
+                        <a href="/datacustomer" class="flex items-center px-5 py-2 hover:text-hijauMuda">
+                            <i data-lucide="user" class="w-4 h-4 mr-2"></i> Data Customer
                         </a>
                     </li>
                     <li>
