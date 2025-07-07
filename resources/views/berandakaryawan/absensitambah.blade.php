@@ -8,7 +8,7 @@
 <div class="bg-white p-8 rounded shadow w-full max-w-full">
     <h3 class="text-md font-medium mb-6">Tambah Absen</h3>
 
-    <form action="{{ route('absensi.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6 w-full">
+    <form action="{{ route('karyawan.absensi.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6 w-full">
         @csrf
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -76,7 +76,7 @@
                 Simpan
             </button>
             <a
-                href="{{ route('absensi.index') }}"
+                href="{{ route('karyawan.absensi.index') }}"
                 class="bg-gray-400 text-white px-6 py-3 rounded-md hover:bg-gray-500 focus:ring-2 focus:ring-gray-500">
                 Batal
             </a>

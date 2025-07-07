@@ -27,7 +27,7 @@
         Silakan absen terlebih dahulu untuk mengakses fitur lainnya.
     </p>
     <div class="flex justify-end">
-        <a href="{{ route('absensi.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="{{ route('karyawan.absensi.index') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
             Absen Sekarang
         </a>
     </div>

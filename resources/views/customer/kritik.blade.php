@@ -14,7 +14,7 @@
     <p class="mb-5 text-sm">Kami menghargai setiap masukan untuk meningkatkan layanan Spa Hijau.</p>
 
     <!-- Form -->
-    <form action="{{ route('kritik.store') }}" method="POST">
+     <form action="{{ route('customer.kritik.store') }}" method="POST">
       @csrf
       <div class="mb-3">
         <label class="block mb-1 text-white">Nama Lengkap</label>
@@ -31,7 +31,7 @@
 
       <!-- Buttons -->
       <div class="flex justify-end gap-2">
-        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Kirim</button>
+        <button type="submit" onclick="closeModal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Kirim</button>
         <button type="button" onclick="closeModal()" class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded">Batal</button>
       </div>
     </form>
@@ -40,7 +40,7 @@
 
 <!-- Header -->
 <header class="bg-gray-200 py-4">
-  <h1 class="text-left text-lg font-medium pl-4">Customer Kritik dan Saran</h1>
+  <h1 class="text-left text-lg font-medium pl-4">Kritik dan Saran</h1>
 </header>
 
 <!-- Container -->

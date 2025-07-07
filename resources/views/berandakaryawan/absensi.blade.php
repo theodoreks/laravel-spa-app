@@ -12,7 +12,7 @@
 <div class="bg-white p-6 rounded-lg shadow">
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-lg">Absent</h2>
-    <a href="{{ route('absensi.create') }}"
+    <a href="{{ route('karyawan.absensi.create') }}"
        class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 inline-flex items-center">
       <i class="fas fa-plus mr-1"></i> Tambah Absen
     </a>
@@ -44,12 +44,12 @@
           <td class="border px-4 py-2 text-center">
             <div class="flex justify-center space-x-2">
               <!-- Tombol Edit -->
-              <a href="{{ route('absensi.edit', $item->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-md shadow">
+              <a href="{{ route('karyawan.absensi.edit', $item->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-md shadow">
                 <i class="fas fa-edit"></i>
               </a>
 
               <!-- Tombol Hapus -->
-              <form action="{{ route('absensi.destroy', $item->id) }}" method="POST" class="inline">
+              <form action="{{ route('karyawan.absensi.destroy', $item->id) }}" method="POST" class="inline">
                 @csrf
                 @method('DELETE')
                 <button type="submit" onclick="return confirm('Yakin ingin menghapus?')" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-md shadow">

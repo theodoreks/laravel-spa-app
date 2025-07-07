@@ -18,7 +18,7 @@ class AbsensiKaryawanController extends Controller
     }
 
     public function store(Request $request)
-    {
+{
         $request->validate([
             'nama_karyawan' => 'required|string|max:100',
             'tanggal' => 'required|date',
@@ -31,7 +31,7 @@ class AbsensiKaryawanController extends Controller
 
         AbsensiKaryawan::create($data);
 
-        return redirect()->route('absensi.index')->with('success', 'Absensi berhasil ditambahkan.');
+         return redirect()->route('karyawan.absensi.index')->with('success', 'Absensi berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -41,7 +41,7 @@ class AbsensiKaryawanController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
+{
         $request->validate([
             'nama_karyawan' => 'required|string|max:100',
             'tanggal' => 'required|date',
@@ -55,14 +55,15 @@ class AbsensiKaryawanController extends Controller
         $absen = AbsensiKaryawan::findOrFail($id);
         $absen->update($data);
 
-        return redirect()->route('absensi.index')->with('success', 'Absensi berhasil diperbarui.');
+            return redirect()->route('karyawan.absensi.index')->with('success', 'Absensi berhasil diperbarui.');
+
     }
 
     public function destroy($id)
-    {
+{
         $absen = AbsensiKaryawan::findOrFail($id);
         $absen->delete();
 
-        return redirect()->route('absensi.index')->with('success', 'Absensi berhasil dihapus.');
+    return redirect()->route('karyawan.absensi.index')->with('success', 'Absensi berhasil dihapus.');
     }
 }

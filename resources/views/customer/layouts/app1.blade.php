@@ -68,12 +68,12 @@
     @unless (Request::is('/') || Request::is('login'))
     <h4 class="font-semibold mb-2">Link</h4>
     <ul>
-        <li><a href="/beranda" class="hover:underline">Beranda</a></li>
-        <li><a href="/profil" class="hover:underline">Profil</a></li>
-        <li><a href="/promo" class="hover:underline">Promo</a></li>
-        <li><a href="/riwayat" class="hover:underline">Riwayat Booking</a></li>
-        <li><a href="/kritik" class="hover:underline">Kritik dan Saran</a></li>
-        <li><a href="/event" class="hover:underline">Event dan Kolaborasi</a></li>
+         <li><a href="{{ route('customer.beranda') }}" class="hover:underline">Beranda</a></li>
+                    <li><a href="{{ route('customer.profil.index') }}" class="hover:underline">Profil</a></li>
+                    <li><a href="{{ route('customer.promo') }}" class="hover:underline">Promo</a></li>
+                    <li><a href="{{ route('customer.booking.history') }}" class="hover:underline">Riwayat Booking</a></li>
+                    <li><a href="{{ route('customer.kritik.index') }}" class="hover:underline">Kritik dan Saran</a></li>
+                    <li><a href="{{ route('customer.event') }}" class="hover:underline">Event dan Kolaborasi</a></li>
     </ul>
 
  @endunless

@@ -6,8 +6,8 @@
 <!-- Content -->
 
     <!-- Hero Banner -->
-    <section class="relative h-72 bg-cover bg-center" style="background-image: url('{{ asset('images/hero.jpg') }}');">
-        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <section class="relative h-72 bg-cover bg-center" style="background-image: url('{{ asset('images/background_costumer.jpg') }}');">
+        <div class="absolute inset-0  bg-opacity-40 flex items-center justify-center">
             <h1 class="text-white text-4xl font-bold">Hijau Spa</h1>
         </div>
     </section>
