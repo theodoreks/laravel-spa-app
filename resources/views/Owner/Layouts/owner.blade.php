@@ -35,22 +35,25 @@
 
             <!-- Sidebar Menu -->
             <nav class="bg-white flex-1 py-4">
-                <ul class="space-y-1">
-                    <li>
-                        <a href="/dashboard" class="flex items-center px-5 py-2 hover:text-hijauMuda">
-                            <i data-lucide="home" class="w-4 h-4 mr-2"></i> Beranda
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/datakaryawan" class="flex items-center px-5 py-2 hover:text-hijauMuda">
-                            <i data-lucide="users" class="w-4 h-4 mr-2"></i> Data Karyawan
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/datacustomer" class="flex items-center px-5 py-2 hover:text-hijauMuda">
-                            <i data-lucide="user" class="w-4 h-4 mr-2"></i> Data Customer
-                        </a>
-                    </li>
+    <ul class="space-y-1">
+        <li>
+            {{-- Menggunakan route name 'owner.dashboard' --}}
+            <a href="{{ route('owner.dashboard') }}" class="flex items-center px-5 py-2 hover:text-hijauMuda">
+                <i data-lucide="home" class="w-4 h-4 mr-2"></i> Beranda
+            </a>
+        </li>
+        <li>
+            
+            <a href="{{ route('owner.karyawan.index') }}" class="flex items-center px-5 py-2 hover:text-hijauMuda">
+                <i data-lucide="users" class="w-4 h-4 mr-2"></i> Data Karyawan
+            </a>
+        </li>
+        <li>
+           
+            <a href="{{ route('owner.customer.index') }}" class="flex items-center px-5 py-2 hover:text-hijauMuda">
+                <i data-lucide="user" class="w-4 h-4 mr-2"></i> Data Customer
+            </a>
+        </li>
                     <li>
                         <details class="group">
                             <summary class="flex items-center px-5 py-2 cursor-pointer hover:text-hijauMuda justify-between">
@@ -81,10 +84,14 @@
         <div class="flex-1 flex flex-col">
             <!-- Navbar -->
             <header class="bg-hijauTua px-6 py-3 text-white flex justify-end items-center h-[56px]">
-                <a href="/" class="text-sm font-medium bg-[#617152] text-white px-4 py-1 rounded-md hover:bg-[#4d5c45]">
-                    LOG OUT
-                </a>
-            </header>
+    {{-- Tombol LOG OUT harus berupa form POST --}}
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit" class="text-sm font-medium bg-[#617152] text-white px-4 py-1 rounded-md hover:bg-[#4d5c45]">
+            LOG OUT
+        </button>
+    </form>
+</header>
 
             <!-- Page Content -->
             <main class="flex-1 p-6 overflow-y-auto">

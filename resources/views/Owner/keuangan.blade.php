@@ -1,4 +1,4 @@
-@extends('layouts.Owner')
+@extends('Owner.Layouts.owner')
 
 @section('content')
 <h1 class="text-xl font-semibold mb-4">Laporan</h1>

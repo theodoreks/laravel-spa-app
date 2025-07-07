@@ -1,4 +1,4 @@
-@extends('layouts.Owner')
+@extends('Owner.Layouts.owner')
 
 @section('content')
 <h1 class="text-xl font-semibold mb-4">Karyawan</h1>
@@ -6,7 +6,7 @@
 <div class="bg-white p-6 rounded-lg shadow border max-w-4xl">
     <h2 class="text-base font-medium">Edit Data Karyawan</h2>
 
-    <form action="#" method="POST" class="space-y-6">
+    <form action="{{ route('owner.karyawan.update', $karyawan->id) }}" method="POST" class="space-y-6">
         @csrf
         @method('PUT') {{-- Jika kamu pakai route edit --}}
 
@@ -43,7 +43,7 @@
         {{-- Tombol --}}
         <div class="flex justify-end space-x-2 pt-4">
             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded">Simpan</button>
-            <a href="" class="bg-gray-400 hover:bg-gray-500 text-white text-sm px-4 py-2 rounded">Kembali</a>
+            <a href="{{ route('owner.karyawan.index') }}" class="bg-gray-400 hover:bg-gray-500 text-white text-sm px-4 py-2 rounded">Kembali</a>
         </div>
     </form>
 </div>

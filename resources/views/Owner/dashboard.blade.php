@@ -1,4 +1,4 @@
-@extends('layouts.owner')
+@extends('Owner.Layouts.owner')
 
 @section('content')
 <div class="p-6 text-black">

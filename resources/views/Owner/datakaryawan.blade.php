@@ -1,4 +1,4 @@
-@extends('layouts.Owner')
+@extends('Owner.Layouts.owner')
 
 @section('content')
 <h1 class="text-xl font-semibold mb-4">Karyawan</h1>
@@ -6,7 +6,7 @@
 <div class="bg-white p-6 rounded-md shadow border">
     <div class="flex justify-between items-center mb-4">
         <h2 class="text-base font-medium">Tabel Info Karyawan</h2>
-        <a href="/tambahkaryawan" class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-1 rounded flex items-center space-x-1">
+        <a href="{{ route('owner.karyawan.create') }}"> class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-1 rounded flex items-center space-x-1">
             <i data-lucide="plus" class="w-4 h-4"></i>
             <span>Tambah</span>
         </a>
