@@ -31,7 +31,7 @@
             @endif
         </div>
         <div class="flex justify-end space-x-4 mt-8">
-            <a href="{{ route('promo.index') }}" class="bg-gray-400 text-white px-6 py-2 rounded-md hover:bg-gray-500">Batal</a>
+            <a href="{{ route('karyawan.promo.index') }}" class="bg-gray-400 text-white px-6 py-2 rounded-md hover:bg-gray-500">Batal</a>
             <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">Simpan Perubahan</button>
         </div>
     </form>

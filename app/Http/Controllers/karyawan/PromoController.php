@@ -44,24 +44,29 @@ class PromoController extends Controller
         return view('promo.edit', compact('promo'));
     }
 
-    public function update(Request $request, Promo $promo)
-    {
-        // ... (logika update sama seperti sebelumnya)
-        $request->validate([
-            'nama_promo' => 'required|string|max:100',
-            // ... validasi lainnya
-        ]);
-        $data = $request->except(['_token', '_method']);
-        if ($request->hasFile('foto')) {
-            $data['foto'] = $request->file('foto')->store('foto_promo', 'public');
-        }
-        $promo->update($data);
-        return redirect()->route('karyawan.promo.index')->with('success', 'Promo berhasil diperbarui!');
+   public function update(Request $request, Promo $promo)
+{
+    // Complete the validation rules here
+    $request->validate([
+        'nama_promo'  => 'required|string|max:100',
+        'deskripsi'   => 'nullable|string',
+        'harga'       => 'required|numeric',
+        'durasi'      => 'required|integer',
+        'foto'        => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // foto is nullable on update
+    ]);
+
+    $data = $request->except(['_token', '_method']);
+    
+    if ($request->hasFile('foto')) {
+        // Optional: Delete old photo if it exists
+        // if ($promo->foto) {
+        //     Storage::disk('public')->delete($promo->foto);
+        // }
+        $data['foto'] = $request->file('foto')->store('foto_promo', 'public');
     }
 
-    public function destroy(Promo $promo)
-    {
-        $promo->delete();
-        return redirect()->route('karyawan.promo.index')->with('success', 'Promo berhasil dihapus!');
-    }
+    $promo->update($data);
+    
+    return redirect()->route('karyawan.promo.index')->with('success', 'Promo berhasil diperbarui!');
+}
 }

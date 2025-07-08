@@ -10,7 +10,7 @@
 <div class="bg-white p-6 rounded-lg shadow">
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-lg font-medium">Daftar Event dan Kolaborasi</h2>
-    <a href="{{ route('event.tambah') }}"
+    <a href="{{ route('karyawan.event.create') }}"
        class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
       <i class="fas fa-plus mr-1"></i> Tambah
     </a>
@@ -42,11 +42,11 @@
           <td class="border px-4 py-2">
             <div class="flex justify-center space-x-2">
               <!-- Edit Hijau -->
-              <a href="{{ route('event.edit', $event->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded-md shadow text-xs">
+              <a href="{{ route('karyawan.event.edit', $event->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded-md shadow text-xs">
                 <i class="fas fa-edit text-xs"></i>
               </a>
               <!-- Hapus Merah -->
-              <form action="{{ route('event.hapus', $event->id) }}" method="POST"
+              <form action="{{ route('karyawan.event.destroy', $event->id) }}" method="POST"
                     onsubmit="return confirm('Yakin ingin hapus?')">
                 @csrf
                 @method('DELETE')

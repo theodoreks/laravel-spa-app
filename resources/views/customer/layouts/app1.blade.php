@@ -47,7 +47,7 @@
     <a href="{{ route('customer.kritik.index') }}" class="hover:underline">Kritik dan Saran</a>
     <a href="{{ route('customer.event') }}" class="hover:underline">Event dan Kolaborasi</a>
 </div>
-<a href="{{ route('customer.booking.create') }}" class="bg-[#6E7F5E] text-white px-3 py-1 rounded text-xs ml-4">Booking Sekarang</a>
+
     </nav>
 </div>
 @endunless
