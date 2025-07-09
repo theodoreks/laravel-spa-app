@@ -14,7 +14,7 @@
             <i class=""></i> Tambah Aktivitas Harian
         </h2>
 
-        <form action="{{ route('aktivitas.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('karyawan.aktivitas.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
 
             <!-- Tanggal -->
@@ -49,7 +49,7 @@
                 <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">
                     Simpan
                 </button>
-                <a href="{{ route('aktivitas.index') }}" class="bg-gray-400 text-white px-6 py-3 rounded-md hover:bg-gray-500 focus:ring-2 focus:ring-gray-500">
+                <a href="{{ route('karyawan.aktivitas.index') }}" class="bg-gray-400 text-white px-6 py-3 rounded-md hover:bg-gray-500 focus:ring-2 focus:ring-gray-500">
                     Batal
                 </a>
             </div>

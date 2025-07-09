@@ -78,10 +78,22 @@
                     <i :class="aktivitasOpen ? 'fa-chevron-up' : 'fa-chevron-down'" class="fas ml-auto text-xs"></i>
                 </button>
                 <ul x-show="aktivitasOpen" x-transition class="ml-6 mt-2 space-y-2 text-gray-600">
-                    <li><a href="#" class="flex items-center hover:text-lime-500">Harian</a></li>
-                    <li><a href="#" class="flex items-center hover:text-lime-500">Mingguan</a></li>
-                    <li><a href="#" class="flex items-center hover:text-lime-500">Bulanan</a></li>
-                </ul>
+    <li>
+        <a href="{{ route('karyawan.aktivitas.index') }}" class="flex items-center hover:text-lime-500">
+            <i class="fas fa-calendar-day mr-2"></i> Harian
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('karyawan.aktivitas.mingguan.index') }}" class="flex items-center hover:text-lime-500">
+            <i class="fas fa-calendar-week mr-2"></i> Mingguan
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('karyawan.aktivitas.bulanan.index') }}" class="flex items-center hover:text-lime-500">
+            <i class="fas fa-calendar-alt mr-2"></i> Bulanan
+        </a>
+    </li>
+</ul>
             </li>
 
             <li>

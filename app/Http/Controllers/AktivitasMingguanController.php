@@ -9,7 +9,10 @@ class AktivitasMingguanController extends Controller
 {
     public function index()
     {
+        // Fetch data from the database
         $aktivitasMingguan = AktivitasMingguan::orderBy('tanggal', 'desc')->get();
+        
+        // Send the data to the view
         return view('aktivitas.karyawan1', compact('aktivitasMingguan'));
     }
 
@@ -29,7 +32,7 @@ class AktivitasMingguanController extends Controller
 
         AktivitasMingguan::create($request->only(['tanggal', 'aktivitas', 'status']));
 
-        return redirect()->route('aktivitas.mingguan.index')->with('success', 'Aktivitas berhasil ditambahkan');
+        return redirect()->route('karyawan.aktivitas.mingguan.index')->with('success', 'Aktivitas berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -49,7 +52,7 @@ class AktivitasMingguanController extends Controller
         $aktivitas = AktivitasMingguan::findOrFail($id);
         $aktivitas->update($request->only(['tanggal', 'aktivitas', 'status']));
 
-        return redirect()->route('aktivitas.mingguan.index')->with('success', 'Aktivitas berhasil diperbarui');
+        return redirect()->route('karyawan.aktivitas.mingguan.index')->with('success', 'Aktivitas berhasil diperbarui');
     }
 
     public function destroy($id)
@@ -57,6 +60,6 @@ class AktivitasMingguanController extends Controller
         $aktivitas = AktivitasMingguan::findOrFail($id);
         $aktivitas->delete();
 
-        return redirect()->route('aktivitas.mingguan.index')->with('success', 'Aktivitas berhasil dihapus');
+        return redirect()->route('karyawan.aktivitas.mingguan.index')->with('success', 'Aktivitas berhasil dihapus');
     }
 }

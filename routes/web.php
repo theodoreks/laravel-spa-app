@@ -86,6 +86,9 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
         Route::resource('laporan', LaporanController::class);
         Route::resource('inventory', InventoryController::class);
         Route::get('/booking/selesai', [BookingSelesaiController::class, 'selesai'])->name('boking.selesai');
+    Route::resource('aktivitas', \App\Http\Controllers\AktivitasKaryawanController::class)->names('aktivitas');
+    Route::resource('aktivitas-mingguan', \App\Http\Controllers\AktivitasMingguanController::class)->names('aktivitas.mingguan');
+    Route::resource('aktivitas-bulanan', \App\Http\Controllers\AktivitasBulananController::class)->names('aktivitas.bulanan');
     });
 
       // ========== RUTE UNTUK ROLE: CUSTOMER ==========

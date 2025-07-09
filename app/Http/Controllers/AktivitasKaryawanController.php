@@ -32,7 +32,7 @@ class AktivitasKaryawanController extends Controller
 
         AktivitasKaryawan::create($request->only(['tanggal', 'jam', 'aktivitas', 'status']));
 
-        return redirect()->route('aktivitas.index')->with('success', 'Aktivitas berhasil ditambahkan');
+        return redirect()->route('karyawan.aktivitas.index')->with('success', 'Aktivitas berhasil ditambahkan');
     }
 
     // Tampilkan form edit
@@ -55,7 +55,7 @@ class AktivitasKaryawanController extends Controller
         $aktivitas = AktivitasKaryawan::findOrFail($id);
         $aktivitas->update($request->only(['tanggal', 'jam', 'aktivitas', 'status']));
 
-        return redirect()->route('aktivitas.index')->with('success', 'Aktivitas berhasil diperbarui');
+        return redirect()->route('karyawan.aktivitas.index')->with('success', 'Aktivitas berhasil diperbarui');
     }
 
     // Hapus data
@@ -64,6 +64,6 @@ class AktivitasKaryawanController extends Controller
         $aktivitas = AktivitasKaryawan::findOrFail($id);
         $aktivitas->delete();
 
-        return redirect()->route('aktivitas.index')->with('success', 'Aktivitas berhasil dihapus');
+        return redirect()->route('karyawan.aktivitas.index')->with('success', 'Aktivitas berhasil dihapus');
     }
 }

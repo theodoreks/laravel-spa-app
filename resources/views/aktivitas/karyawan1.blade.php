@@ -10,7 +10,7 @@
 <div class="bg-white p-6 rounded-lg shadow font-playfair">
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-lg font-medium">Daftar Aktivitas Mingguan</h2>
-    <a href="{{ route('aktivitas.mingguan.create') }}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 inline-flex items-center">
+    <a href="{{ route('karyawan.aktivitas.mingguan.create') }}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 inline-flex items-center">
       <i class="fas fa-plus mr-1"></i> Tambah
     </a>
   </div>
@@ -34,10 +34,10 @@
             <input type="checkbox" disabled {{ $aktivitas->status == 'selesai' ? 'checked' : '' }}>
           </td>
           <td class="border px-4 py-2 text-right flex justify-end items-center space-x-2">
-            <a href="{{ route('aktivitas.mingguan.edit', $aktivitas->id) }}" class="text-blue-600 hover:underline">
+            <a href="{{ route('karyawan.aktivitas.mingguan.edit', $aktivitas->id) }}" class="text-blue-600 hover:underline">
               <i class="fas fa-pen"></i>
             </a>
-            <form action="{{ route('aktivitas.mingguan.destroy', $aktivitas->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+            <form action="{{ route('karyawan.aktivitas.mingguan.destroy', $aktivitas->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
               @csrf
               @method('DELETE')
               <button type="submit" class="text-red-600 hover:underline">

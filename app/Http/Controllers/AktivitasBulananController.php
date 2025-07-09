@@ -9,7 +9,10 @@ class AktivitasBulananController extends Controller
 {
     public function index()
     {
+        // Fetch data from the database
         $aktivitas = AktivitasBulanan::orderBy('tanggal', 'desc')->get();
+        
+        // Send the data to the view
         return view('aktivitas.karyawan2', compact('aktivitas'));
     }
 
@@ -27,7 +30,7 @@ class AktivitasBulananController extends Controller
         ]);
 
         AktivitasBulanan::create($request->only(['tanggal', 'aktivitas', 'status']));
-        return redirect()->route('aktivitas.bulanan.index')->with('success', 'Aktivitas bulanan ditambahkan');
+        return redirect()->route('karyawan.aktivitas.bulanan.index')->with('success', 'Aktivitas bulanan ditambahkan');
     }
 
     public function edit($id)
@@ -46,13 +49,13 @@ class AktivitasBulananController extends Controller
 
         $aktivitas = AktivitasBulanan::findOrFail($id);
         $aktivitas->update($request->only(['tanggal', 'aktivitas', 'status']));
-        return redirect()->route('aktivitas.bulanan.index')->with('success', 'Aktivitas bulanan diperbarui');
+        return redirect()->route('karyawan.aktivitas.bulanan.index')->with('success', 'Aktivitas bulanan diperbarui');
     }
 
     public function destroy($id)
     {
         $aktivitas = AktivitasBulanan::findOrFail($id);
         $aktivitas->delete();
-        return redirect()->route('aktivitas.bulanan.index')->with('success', 'Aktivitas bulanan dihapus');
+        return redirect()->route('karyawan.aktivitas.bulanan.index')->with('success', 'Aktivitas bulanan dihapus');
     }
 }

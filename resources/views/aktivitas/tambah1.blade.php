@@ -8,7 +8,7 @@
   <div class="bg-white p-8 rounded shadow w-full font-playfair">
     <h3 class="text-md font-semibold mb-4">Tambah Aktivitas Diri Karyawan Mingguan</h3>
 
-    <form action="{{ route('aktivitas.mingguan.store') }}" method="POST" class="space-y-6">
+    <form action="{{ route('karyawan.aktivitas.mingguan.store') }}" method="POST" class="space-y-6">
       @csrf
 
       <!-- Tanggal -->
@@ -37,7 +37,7 @@
         <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">
           Simpan
         </button>
-        <a href="{{ route('aktivitas.mingguan.index') }}" class="bg-gray-400 text-white px-6 py-3 rounded-md hover:bg-gray-500 focus:ring-2 focus:ring-gray-500">
+        <a href="{{ route('karyawan.aktivitas.mingguan.index') }}" class="bg-gray-400 text-white px-6 py-3 rounded-md hover:bg-gray-500 focus:ring-2 focus:ring-gray-500">
           Batal
         </a>
       </div>
