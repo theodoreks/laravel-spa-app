@@ -11,13 +11,13 @@
   <!-- Header -->
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-lg font-medium">Laporan Booking Inventory</h2>
-    <a href="{{ route('inventory.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    <a href="{{ route('karyawan.inventory.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
       + Tambah
     </a>
   </div>
 
   <!-- Filter Tanggal -->
-  <form method="GET" action="{{ route('inventory.index') }}" class="flex items-center space-x-2 mb-4">
+  <form method="GET" action="{{ route('karyawan.inventory.index') }}" class="flex items-center space-x-2 mb-4">
     <input type="date" name="filter_tanggal" value="{{ request('filter_tanggal') }}" class="border rounded p-2" />
     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
       <i class="fas fa-search"></i>
@@ -59,10 +59,10 @@
           <td class="border px-4 py-2">Rp{{ number_format($item->harga_perolehan, 0, ',', '.') }}</td>
           <td class="border px-4 py-2">
             <div class="flex justify-center space-x-2">
-              <a href="{{ route('inventory.edit', $item->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded shadow text-xs">
+              <a href="{{ route('karyawan.inventory.edit', $item->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded shadow text-xs">
                 <i class="fas fa-edit"></i>
               </a>
-              <form action="{{ route('inventory.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+              <form action="{{ route('karyawan.inventory.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="bg-red-500 hover:bg-red-600 text-white p-1.5 rounded shadow text-xs">

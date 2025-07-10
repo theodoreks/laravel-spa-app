@@ -43,7 +43,7 @@ class InventoryController extends Controller
 
         Inventory::create($validated);
 
-        return redirect()->route('inventory.index')->with('success', 'Data inventaris berhasil ditambahkan.');
+        return redirect()->route('karyawan.inventory.index')->with('success', 'Data inventaris berhasil ditambahkan.');
     }
 
     public function show(Inventory $inventory)
@@ -73,12 +73,12 @@ class InventoryController extends Controller
 
         $inventory->update($validated);
 
-        return redirect()->route('inventory.index')->with('success', 'Data berhasil diperbarui.');
+        return redirect()->route('karyawan.inventory.index')->with('success', 'Data berhasil diperbarui.');
     }
 
     public function destroy(Inventory $inventory)
     {
         $inventory->delete();
-        return redirect()->route('inventory.index')->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('karyawan.inventory.index')->with('success', 'Data berhasil dihapus.');
     }
 }

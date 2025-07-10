@@ -97,10 +97,10 @@
             </li>
 
             <li>
-                <a href="#" class="block hover:text-lime-500">
-                    <i class="fa-solid fa-user mr-2"></i> Profil
-                </a>
-            </li>
+    <a href="{{ route('karyawan.profil.index') }}" class="block hover:text-lime-500">
+        <i class="fa-solid fa-user mr-2"></i> Profil
+    </a>
+</li>
 
         </ul>
     </nav>

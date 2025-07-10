@@ -6,7 +6,7 @@
 <div class="max-w-2xl mx-auto p-6 bg-white shadow rounded-lg mt-6">
   <h1 class="text-2xl font-bold mb-4">Profil Karyawan</h1>
 
-  <form action="{{ route('profil.update') }}" method="POST" class="space-y-4">
+  <form action="{{ route('karyawan.profil.update') }}" method="POST" class="space-y-4">
     @csrf
     @method('PUT')
 

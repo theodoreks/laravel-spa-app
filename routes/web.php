@@ -79,7 +79,8 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
     // ========== RUTE UNTUK ROLE: KARYAWAN ==========
     Route::middleware('role:karyawan')->prefix('karyawan')->name('karyawan.')->group(function () {
         Route::get('/dashboard', [BerandaKaryawanController::class, 'index'])->name('dashboard');
-        // Tambahkan rute khusus karyawan lainnya di sini
+        Route::get('/profil', [\App\Http\Controllers\karyawan\ProfilController::class, 'index'])->name('profil.index');
+        Route::put('/profil', [\App\Http\Controllers\karyawan\ProfilController::class, 'update'])->name('profil.update');
         Route::resource('event', EventKegiatanController::class)->except(['show']);
         Route::resource('absensi', AbsensiKaryawanController::class)->except(['show']);
         Route::resource('promo', KaryawanPromoController::class);

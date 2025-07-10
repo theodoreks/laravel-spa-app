@@ -10,7 +10,7 @@
   <h3 class="text-md font-medium mb-4">
     <i class=""></i>Edit Inventory Barang
   </h3>
-        <form action="{{ route('inventory.update', $inventory->id) }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form action="{{ route('karyawan.inventory.update', $inventory->id) }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             @csrf
             @method('PUT')
 
@@ -78,7 +78,7 @@
                 <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
                     Simpan
                 </button>
-                <a href="{{ route('inventory.index') }}" class="bg-gray-400 text-white px-6 py-2 rounded hover:bg-gray-500">
+                <a href="{{ route('karyawan.inventory.index') }}" class="bg-gray-400 text-white px-6 py-2 rounded hover:bg-gray-500">
                     Kembali
                 </a>
             </div>

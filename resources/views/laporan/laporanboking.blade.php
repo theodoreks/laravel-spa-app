@@ -12,7 +12,7 @@
   <!-- Judul & Tombol Tambah -->
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-lg font-medium">Laporan Booking</h2>
-    <a href="{{ route('laporan.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-green-700">
+    <a href="{{ route('karyawan.laporan.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-green-700">
       + Tambah
     </a>
   </div>
