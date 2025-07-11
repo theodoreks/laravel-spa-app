@@ -37,7 +37,7 @@
                     <button class="mt-4 bg-[#6E7F5E] text-white px-4 py-2 rounded text-sm hover:bg-[#5a7a48]">
                         Cek Detail
                     </button>
-                    <a href="{{ route('customer.booking.create') }}" class="mt-4 bg-[#6E7F5E] text-white px-4 py-2 rounded text-sm hover:bg-[#5a7a48]">Booking</a>
+                    <a href="{{ route('customer.booking.create', ['promo_id' => $item->id]) }}" class="mt-4 bg-[#6E7F5E] text-white px-4 py-2 rounded text-sm hover:bg-[#5a7a48]">Booking</a>
                 </div>
             </div>
              @empty

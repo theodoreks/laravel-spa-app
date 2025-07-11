@@ -15,6 +15,8 @@ use App\Http\Controllers\{
     BookingSelesaiController
 };
 
+use App\Http\Controllers\MidtransController;
+
 // Controller Karyawan (untuk mengelola promo)
 use App\Http\Controllers\karyawan\PromoController as KaryawanPromoController;
 
@@ -52,6 +54,7 @@ use App\Http\Controllers\customer\{
 Route::get('/', [LandingController::class, 'landing'])->name('landing');
 Route::get('/event-list', [EventController::class, 'event'])->name('customer.event'); 
 Route::get('/promo-list', [CustomerPromoController::class, 'promo'])->name('customer.promo'); 
+Route::post('/midtrans/callback', [MidtransController::class, 'callback']);
 
 // RUTE AUTENTIKASI
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
@@ -102,6 +105,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
          Route::get('/riwayat-booking', [BookingController::class, 'index'])->name('booking.history');
          Route::get('/pembayaran/{id}', [BookingController::class, 'showPembayaran'])->name('booking.pembayaran');
          Route::resource('kritik', KritikController::class)->only(['index', 'store']);
+         Route::post('/pembayaran/{id}/pay', [App\Http\Controllers\customer\BookingController::class, 'pay'])->name('booking.pay');
      });
 
  });

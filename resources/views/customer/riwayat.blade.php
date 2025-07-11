@@ -21,18 +21,22 @@
                         </tr>
                     </thead>
                    <tbody>
-  @forelse($bookings as $booking)
-    <tr class="bg-white">
-        <td class="px-4 py-2">Booking {{ $booking->id }}</td>
-        <td class="px-4 py-2">{{ $booking->treatment }}</td>
-        <td class="px-4 py-2">Rp.1000000</td>
-        <td class="px-4 py-2">{{ \Carbon\Carbon::parse($booking->tanggal)->format('d F Y') }} | {{ \Carbon\Carbon::parse($booking->jam)->format('H:i') }} WIB</td>
-    </tr>
-  @empty
-    <tr>
-      <td colspan="4" class="text-center py-4">Belum ada data booking.</td>
-    </tr>
-  @endforelse
+    @forelse($bookings as $booking)
+        <tr class="bg-white border-b">
+            <td class="px-4 py-2">Booking-{{ $booking->id }}</td>
+            
+            {{-- Access name and price through the promo relationship --}}
+            <td class="px-4 py-2">{{ $booking->promo->nama_promo }}</td>
+            <td class="px-4 py-2">Rp. {{ number_format($booking->promo->harga) }}</td>
+
+            {{-- Use the correct column names for date and time --}}
+            <td class="px-4 py-2">{{ \Carbon\Carbon::parse($booking->tanggal_treatment)->translatedFormat('d M Y') }} | {{ \Carbon\Carbon::parse($booking->jam_treatment)->format('H:i') }} WIB</td>
+        </tr>
+    @empty
+        <tr>
+            <td colspan="4" class="text-center py-4 text-gray-500">Belum ada riwayat booking.</td>
+        </tr>
+    @endforelse
 </tbody>
                 </table>
             </div>

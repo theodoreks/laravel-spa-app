@@ -9,13 +9,27 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $table = 'booking'; 
-    protected $fillable = [
-        'nama',
-        'treatment',
-        'tanggal',
-        'jam',
-        'therapist',
-        'status', 
-    ];
+    /**
+     * The attributes that are not mass assignable.
+     * Using guarded is a convenient alternative to a long $fillable array.
+     *
+     * @var array<int, string>
+     */
+    protected $guarded = ['id'];
+
+    /**
+     * Get the user that owns the booking.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the promo associated with the booking.
+     */
+    public function promo()
+    {
+        return $this->belongsTo(Promo::class);
+    }
 }
