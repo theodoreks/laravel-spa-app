@@ -26,19 +26,19 @@
                     <i :class="laporanOpen ? 'fa-chevron-up' : 'fa-chevron-down'" class="fas ml-auto text-xs"></i>
                 </button>
                 <ul x-show="laporanOpen" x-transition class="ml-6 mt-2 space-y-2 text-gray-600">
-                    <li>
-                        {{-- Jika ingin tambahkan laporan keuangan owner --}}
-                    <li>
-                        <a href="{{ route('owner.booking.index') }}" class="flex items-center hover:text-lime-500">
-                            <i class="fas fa-money-bill-wave mr-2"></i> Booking
-                        </a>
-                    </li>
-                        <a href="{{ route('owner.inventory.index') }}" class="flex items-center hover:text-lime-500">
-                            <i class="fas fa-boxes mr-2"></i> Inventory Barang
-                        </a>
-                    </li>
-                    </li>
-                </ul>
+    <li>
+        {{-- Menggunakan rute owner untuk Laporan Booking --}}
+        <a href="{{ route('owner.laporan.booking') }}" class="flex items-center hover:text-lime-500">
+            <i class="fas fa-money-bill-wave mr-2"></i> Booking
+        </a>
+    </li>
+    <li>
+        {{-- Menggunakan rute owner untuk Laporan Inventory --}}
+        <a href="{{ route('owner.laporan.inventory') }}" class="flex items-center hover:text-lime-500">
+            <i class="fas fa-boxes mr-2"></i> Inventory Barang
+        </a>
+    </li>
+</ul>
             </li>
         </ul>
     </nav>

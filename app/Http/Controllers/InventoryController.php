@@ -8,17 +8,18 @@ use Illuminate\Http\Request;
 class InventoryController extends Controller
 {
     public function index(Request $request)
-    {
-        $query = Inventory::query();
+{
+    $query = \App\Models\Inventory::query();
 
-        if ($request->filled('filter_tanggal')) {
-            $query->whereDate('tanggal', $request->filter_tanggal);
-        }
-
-        $data = $query->get();
-
-        return view('inventory.laporaninventory', compact('data'));
+    // Add this logic to filter by date range
+    if ($request->filled('tanggal_awal') && $request->filled('tanggal_akhir')) {
+        $query->whereBetween('tanggal', [$request->tanggal_awal, $request->tanggal_akhir]);
     }
+
+    $data = $query->orderBy('tanggal', 'desc')->get();
+
+    return view('inventory.laporaninventory', compact('data'));
+}
 
 
     public function create()
@@ -69,6 +70,7 @@ class InventoryController extends Controller
             'jumlah_final' => 'required|integer|min:0',
             'stok' => 'required|integer|min:0',
             'harga_perolehan' => 'required|numeric|min:0',
+            'deskripsi' => 'nullable|string',
         ]);
 
         $inventory->update($validated);
@@ -81,4 +83,6 @@ class InventoryController extends Controller
         $inventory->delete();
         return redirect()->route('karyawan.inventory.index')->with('success', 'Data berhasil dihapus.');
     }
+
+    
 }

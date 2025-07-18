@@ -12,17 +12,18 @@ class Inventory extends Model
     protected $table = 'inventory';
 
     protected $fillable = [
-        'kode_id',
-        'tanggal',
-        'kode_barang',
-        'tipe',
-        'nama_produk',
-        'berat_satuan',
-        'jumlah_masuk',
-        'jumlah_final',
-        'stok',
-        'harga_perolehan',
-    ];
+    'kode_id',
+    'tanggal',
+    'kode_barang',
+    'tipe', //  'Merek'
+    'nama_produk',
+    'berat_satuan', //  'Berat'
+    'jumlah_masuk', // I'Jumlah'
+    'jumlah_final',
+    'stok',
+    'harga_perolehan', //  'Harga'
+    'deskripsi', 
+];
 
     protected $casts = [
         'tanggal' => 'date',

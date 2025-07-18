@@ -82,6 +82,8 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
         Route::resource('customer', OwnerCustomerController::class);
         Route::resource('inventory', InventoryController::class)->except(['show']);
         Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+        Route::get('/laporan-booking', [\App\Http\Controllers\owner\LaporanBookingController::class, 'index'])->name('laporan.booking');
+    Route::get('/laporan-inventory', [\App\Http\Controllers\owner\LaporanInventoryController::class, 'index'])->name('laporan.inventory');
 
     });
 

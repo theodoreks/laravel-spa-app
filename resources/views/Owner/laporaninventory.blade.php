@@ -7,6 +7,8 @@
   <h1 class="text-xl font-semibold">Laporan</h1>
 </div>
 
+
+
 <div class="bg-white shadow rounded-lg p-6">
   <!-- Header -->
   <div class="flex justify-between items-center mb-4">
@@ -22,12 +24,14 @@
   </div>
 
   <!-- Filter Tanggal -->
-  <form method="GET" action="{{ route('owner.inventory.index') }}" class="flex items-center space-x-2 mb-4">
-    <input type="date" name="filter_tanggal" value="{{ request('filter_tanggal') }}" class="border rounded p-2" />
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-      <i class="fas fa-search"></i>
-    </button>
-  </form>
+  <form method="GET" action="{{ route('owner.laporan.inventory') }}" class="flex items-center space-x-2 mb-4">
+        <input type="date" name="tanggal_awal" value="{{ request('tanggal_awal') }}" class="border rounded p-2 text-sm">
+        <span class="text-gray-500">-</span>
+        <input type="date" name="tanggal_akhir" value="{{ request('tanggal_akhir') }}" class="border rounded p-2 text-sm">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            <i class="fas fa-search"></i> Cari
+        </button>
+    </form>
 
   <!-- Tabel Data -->
   <div class="overflow-x-auto">
@@ -49,7 +53,7 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        @forelse($data as $index => $item)
+        @forelse($inventory as $index => $item)
         <tr class="{{ $index % 2 === 0 ? 'bg-white' : 'bg-gray-100' }}">
           <td class="border px-4 py-2">{{ $index + 1 }}</td>
           <td class="border px-4 py-2">{{ $item->id }}</td>

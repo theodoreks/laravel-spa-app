@@ -52,7 +52,7 @@
                     <li>
                         {{-- Tambahkan prefix 'karyawan.' --}}
                         <a href="{{ route('karyawan.laporan.index') }}" class="flex items-center hover:text-lime-500">
-                            <i class="fas fa-money-bill-wave mr-2"></i> Keuangan
+                            <i class="fas fa-money-bill-wave mr-2"></i> Booking
                         </a>
                     </li>
                     <li>
