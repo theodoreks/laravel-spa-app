@@ -13,6 +13,7 @@ class CustomerController extends Controller
         // Ambil semua user dengan role 'customer'
         $customers = User::where('role', 'customer')->get();
         
+
         // Tampilkan view daftar customer untuk owner dan kirim datanya
         return view('Owner.datacustomer', compact('customers'));
     }

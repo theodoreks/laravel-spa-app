@@ -1,49 +1,58 @@
-@extends('Owner.Layouts.owner')
+@extends('Owner.Layouts.app')
 
 @section('content')
-<h1 class="text-xl font-semibold mb-4">Karyawan</h1>
+<h1 class="text-xl font-semibold mb-4">Tambah Karyawan</h1>
 
-<div class="bg-white p-6 rounded-lg shadow border max-w-4xl">
-    <h2 class="text-base font-medium">Tambah Data Karyawan</h2>
+@if ($errors->any())
+    <div class="mb-4 bg-red-100 text-red-800 p-3 rounded shadow">
+        <ul class="text-sm space-y-1">
+            @foreach ($errors->all() as $error)
+                <li>• {{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-    <form action="{{ route('owner.karyawan.store') }}" method="POST" method="POST" class="space-y-6">
-        @csrf
+<form action="{{ route('owner.karyawan.store') }}" method="POST" class="bg-white p-6 rounded shadow border space-y-4">
+    @csrf
 
-        {{-- No --}}
-        <div>
-            <label for="no" class="block text-sm font-medium text-gray-700 mb-1">No</label>
-            <input type="text" id="no" name="no" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500">
-        </div>
+    <div>
+        <label class="block text-sm font-medium">Nama Lengkap</label>
+        <input type="text" name="nama_lengkap" class="w-full border px-3 py-2 rounded" value="{{ old('nama_lengkap') }}" required>
+    </div>
 
-        {{-- Baris 2: Nama Karyawan & Jenis Kelamin --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-                <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
-                <input type="text" id="nama" name="nama" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500">
-            </div>
-            <div>
-                <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
-                <input type="text" id="jenis_kelamin" name="jenis_kelamin" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500">
-            </div>
-        </div>
+    <div>
+        <label class="block text-sm font-medium">Jenis Kelamin</label>
+        <select name="jenis_kelamin" class="w-full border px-3 py-2 rounded" required>
+            <option value="">-- Pilih --</option>
+            <option value="Laki-Laki" {{ old('jenis_kelamin') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+            <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+        </select>
+    </div>
 
-        {{-- Baris 3: No Handphone & Username --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-                <label for="hp" class="block text-sm font-medium text-gray-700 mb-1">No Handphone</label>
-                <input type="text" id="hp" name="hp" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500">
-            </div>
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
-                <input type="text" id="username" name="username" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500">
-            </div>
-        </div>
+    <div>
+        <label class="block text-sm font-medium">No Handphone</label>
+        <input type="text" name="no_hp" class="w-full border px-3 py-2 rounded" value="{{ old('no_hp') }}" required>
+    </div>
 
-        {{-- Tombol --}}
-        <div class="flex justify-end space-x-2 pt-4">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded">Simpan</button>
-            <a href="{{ route('owner.karyawan.index') }}" class="bg-gray-400 hover:bg-gray-500 text-white text-sm px-4 py-2 rounded">Batal</a>
-        </div>
-    </form>
-</div>
+    <div>
+        <label class="block text-sm font-medium">Username</label>
+        <input type="text" name="username" class="w-full border px-3 py-2 rounded" value="{{ old('username') }}" required>
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium">Password</label>
+        <input type="password" name="password" class="w-full border px-3 py-2 rounded" required>
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium">Konfirmasi Password</label>
+        <input type="password" name="password_confirmation" class="w-full border px-3 py-2 rounded" required>
+    </div>
+
+    <div class="flex justify-end gap-2">
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
+        <a href="{{ route('owner.karyawan.index') }}" class="text-gray-600 hover:underline">Kembali</a>
+    </div>
+</form>
 @endsection

@@ -21,6 +21,7 @@ use App\Http\Controllers\MidtransController;
 use App\Http\Controllers\karyawan\PromoController as KaryawanPromoController;
 
 // Controller Owner
+use App\Http\Controllers\owner\InventoryExportController;
 use App\Http\Controllers\owner\{
     OwnerController,
     KaryawanController as OwnerKaryawanController,
@@ -52,8 +53,8 @@ use App\Http\Controllers\customer\{
 // RUTE PUBLIK (Dapat diakses semua orang tanpa login)
 // =========================================================================
 Route::get('/', [LandingController::class, 'landing'])->name('landing');
-Route::get('/event-list', [EventController::class, 'event'])->name('customer.event'); 
-Route::get('/promo-list', [CustomerPromoController::class, 'promo'])->name('customer.promo'); 
+Route::get('/event-list', [EventController::class, 'event'])->name('customer.event');
+Route::get('/promo-list', [CustomerPromoController::class, 'promo'])->name('customer.promo');
 Route::post('/midtrans/callback', [MidtransController::class, 'callback']);
 
 // RUTE AUTENTIKASI
@@ -64,7 +65,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Rute untuk menampilkan form
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register.form');
 // Rute untuk memproses data form, harus ada name('register')
-Route::post('/register', [AuthController::class, 'register'])->name('register'); 
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 // =========================================================================
 // SEMUA RUTE YANG MEMERLUKAN LOGIN
@@ -74,9 +75,14 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
     // ========== RUTE UNTUK ROLE: OWNER ==========
     Route::middleware('role:owner')->prefix('owner')->name('owner.')->group(function () {
         Route::get('/dashboard', [OwnerController::class, 'index'])->name('dashboard');
+        Route::get('/inventory-export', [InventoryExportController::class, 'export'])->name('owner.inventory.export');
+        Route::get('/inventory-export', [InventoryExportController::class, 'export'])->name('inventory.export');
         // Tambahkan rute khusus owner lainnya di sini
         Route::resource('karyawan', OwnerKaryawanController::class);
         Route::resource('customer', OwnerCustomerController::class);
+        Route::resource('inventory', InventoryController::class)->except(['show']);
+        Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+
     });
 
     // ========== RUTE UNTUK ROLE: KARYAWAN ==========
@@ -108,7 +114,7 @@ Route::post('/booking/{booking}/selesai', [BookingTreatmentController::class, 'm
          Route::get('/riwayat-booking', [BookingController::class, 'index'])->name('booking.history');
          Route::get('/pembayaran/{id}', [BookingController::class, 'showPembayaran'])->name('booking.pembayaran');
          Route::resource('kritik', KritikController::class)->only(['index', 'store']);
-         
+
          Route::post('/pembayaran/{id}/pay', [App\Http\Controllers\customer\BookingController::class, 'pay'])->name('booking.pay');
      });
 

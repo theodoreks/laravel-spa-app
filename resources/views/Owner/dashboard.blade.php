@@ -1,62 +1,52 @@
-@extends('Owner.Layouts.owner')
+@extends('Owner.layouts.app')
 
 @section('content')
-<div class="p-6 text-black">
-    <h1 class="text-xl font-bold mb-4">Beranda</h1>
+<!-- Header -->
+<div class="flex justify-between items-center mb-4">
+    <h1 class="text-xl font-semibold">
+        <i class="fas fa-house mr-2"></i> Beranda Owner
+    </h1>
+</div>
 
-    {{-- Box Selamat Datang --}}
-    <div class="bg-white rounded-lg border border-gray-200 p-4 shadow">
-        <p class="text-sm">Selamat Datang, <strong>Owner</strong> di Hijau Spa</p>
-        <p class="text-sm">Anda Login Sebagai Owner.</p>
-    </div>
+<!-- Welcome Card -->
+<div class="bg-white p-6 rounded-lg shadow">
+    <p>Selamat Datang, <strong>{{ Auth::user()->nama_lengkap ?? 'Nama Owner' }}</strong> di Hijau Spa</p>
+    <p>Anda login sebagai {{ ucfirst(Auth::user()->role ?? 'owner') }}.</p>
+</div>
 
-    {{-- Kotak Hijau pembungkus --}}
-    <div class="mt-6 bg-[#A9B39B] rounded-md shadow-sm p-4">
-        <div class="text-black font-semibold mb-2">
-            Update Inventory Terbaru
-        </div>
+<!-- Inventory Table -->
+<div class="bg-[#A7B89C] p-4 rounded-lg shadow-md mt-6">
+    <h2 class="text-sm font-semibold mb-3">Update Inventory Terbaru</h2>
 
-        {{-- Tabel di dalam box hijau, tapi tabelnya putih --}}
-        <div class="bg-white border border-gray-300 rounded-md overflow-x-auto">
-            <table class="w-full text-sm text-left text-black">
-                <thead class="bg-gray-300 text-black">
+    <div class="overflow-x-auto">
+        <table class="min-w-full text-sm text-left bg-white rounded-md">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-4 py-2">Tanggal Tambah</th>
+                    <th class="px-4 py-2">Merek</th>
+                    <th class="px-4 py-2">Nama Produk</th>
+                    <th class="px-4 py-2">Berat/Satuan</th>
+                    <th class="px-4 py-2">Jumlah (pcs)</th>
+                    <th class="px-4 py-2">Sisa</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                @forelse ($data as $item)
                     <tr>
-                        <th class="px-4 py-2">Tanggal Tambah</th>
-                        <th class="px-4 py-2">Merek</th>
-                        <th class="px-4 py-2">Nama Produk</th>
-                        <th class="px-4 py-2">Berat/Satuan</th>
-                        <th class="px-4 py-2">Jumlah (pcs)</th>
-                        <th class="px-4 py-2">Sisa</th>
+                        <td class="px-4 py-2">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}</td>
+                        <td class="px-4 py-2">{{ $item->tipe }}</td>
+                        <td class="px-4 py-2">{{ $item->nama_produk }}</td>
+                        <td class="px-4 py-2">{{ $item->berat_satuan ?? '-' }}</td>
+                        <td class="px-4 py-2">{{ $item->jumlah_masuk }}</td>
+                        <td class="px-4 py-2">{{ $item->stok }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-t">
-                        <td class="px-4 py-2">22 Mei 2025</td>
-                        <td class="px-4 py-2">ACL</td>
-                        <td class="px-4 py-2">Lulur Pengantin</td>
-                        <td class="px-4 py-2">5 Kg</td>
-                        <td class="px-4 py-2 font-bold">1</td>
-                        <td class="px-4 py-2 font-bold">1</td>
+                @empty
+                    <tr>
+                        <td colspan="6" class="text-center text-gray-500 py-4">Tidak ada data inventaris.</td>
                     </tr>
-                    <tr class="border-t">
-                        <td class="px-4 py-2">22 Mei 2025</td>
-                        <td class="px-4 py-2">ANJELINA</td>
-                        <td class="px-4 py-2">Cuticle Cream</td>
-                        <td class="px-4 py-2">250 g</td>
-                        <td class="px-4 py-2 font-bold">1</td>
-                        <td class="px-4 py-2 font-bold">1</td>
-                    </tr>
-                    <tr class="border-t">
-                        <td class="px-4 py-2">22 Mei 2025</td>
-                        <td class="px-4 py-2">APRILLIA</td>
-                        <td class="px-4 py-2">Mandi Susu</td>
-                        <td class="px-4 py-2">1000 g</td>
-                        <td class="px-4 py-2 font-bold">1</td>
-                        <td class="px-4 py-2 font-bold">1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection
