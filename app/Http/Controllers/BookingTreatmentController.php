@@ -13,7 +13,7 @@ class BookingTreatmentController extends Controller
 {
     $bookings = Booking::with(['user', 'promo'])
                         // ->where('status_pembayaran', 'Lunas')      // <-- Comment this out
-                        // ->where('status_treatment', 'Menunggu')  // <-- Comment this out
+                        ->where('status_treatment', 'Menunggu')  // <-- Comment this out
                         ->latest('tanggal_treatment')
                         ->get();
     return view('booking.index', compact('bookings'));
