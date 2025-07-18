@@ -89,10 +89,13 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
         Route::resource('promo', KaryawanPromoController::class);
         Route::resource('laporan', LaporanController::class);
         Route::resource('inventory', InventoryController::class);
-        Route::get('/booking/selesai', [BookingSelesaiController::class, 'selesai'])->name('boking.selesai');
+        Route::get('/booking/selesai', [BookingSelesaiController::class, 'selesai'])->name('booking.selesai');
     Route::resource('aktivitas', \App\Http\Controllers\AktivitasKaryawanController::class)->names('aktivitas');
     Route::resource('aktivitas-mingguan', \App\Http\Controllers\AktivitasMingguanController::class)->names('aktivitas.mingguan');
     Route::resource('aktivitas-bulanan', \App\Http\Controllers\AktivitasBulananController::class)->names('aktivitas.bulanan');
+     Route::resource('booking', BookingTreatmentController::class);
+Route::post('/booking/{booking}/selesai', [BookingTreatmentController::class, 'markAsFinished'])->name('booking.finish');
+    Route::get('/booking/selesai', [BookingSelesaiController::class, 'selesai'])->name('booking.selesai');
     });
 
       // ========== RUTE UNTUK ROLE: CUSTOMER ==========
@@ -105,6 +108,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
          Route::get('/riwayat-booking', [BookingController::class, 'index'])->name('booking.history');
          Route::get('/pembayaran/{id}', [BookingController::class, 'showPembayaran'])->name('booking.pembayaran');
          Route::resource('kritik', KritikController::class)->only(['index', 'store']);
+         
          Route::post('/pembayaran/{id}/pay', [App\Http\Controllers\customer\BookingController::class, 'pay'])->name('booking.pay');
      });
 

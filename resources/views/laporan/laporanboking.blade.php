@@ -18,7 +18,7 @@
   </div>
 
   <!-- Filter Kalender -->
-  <form method="GET" action="{{ route('laporan.index') }}" class="flex items-center space-x-2 mb-4">
+  <form method="GET" action="{{ route('karyawan.laporan.index') }}" class="flex items-center space-x-2 mb-4">
     <input type="date" name="tanggal_awal" value="{{ request('tanggal_awal') }}" class="border rounded p-2" required>
     <input type="date" name="tanggal_akhir" value="{{ request('tanggal_akhir') }}" class="border rounded p-2" required>
     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
@@ -55,10 +55,10 @@
           <td class="border px-4 py-2">{{ $laporan->durasi }}</td>
           <td class="border px-4 py-2">
             <div class="flex justify-center space-x-2">
-              <a href="{{ route('laporan.edit', $laporan->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded-md shadow text-xs">
+              <a href="{{ route('karyawan.laporan.edit', $laporan->id) }}" class="bg-green-600 hover:bg-green-700 text-white p-1.5 rounded-md shadow text-xs">
                 <i class="fas fa-edit text-xs"></i>
               </a>
-              <form action="{{ route('laporan.destroy', $laporan->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus laporan ini?')">
+              <form action="{{ route('karyawan.laporan.destroy', $laporan->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus laporan ini?')">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-md shadow text-xs">

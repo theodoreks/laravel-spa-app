@@ -75,10 +75,7 @@ $request->session()->regenerateToken();
     // Assign the role using the Spatie package method
     $user->assignRole('customer');
 
-    // 4. Login user yang baru terdaftar
-    Auth::login($user);
-
-    // 5. Arahkan ke halaman yang sesuai
-    return redirect()->route('customer.beranda');
+    // Redirect to the login page with a success message.
+    return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
 }
 }

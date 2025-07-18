@@ -31,12 +31,12 @@
                 <ul x-show="bookingOpen" x-transition class="ml-6 mt-2 space-y-2 text-gray-600">
                     {{-- Di sini saya asumsikan rute booking juga perlu prefix, sesuaikan jika berbeda --}}
                     <li>
-                        <a href="#" class="flex items-center hover:text-lime-500">
+                        <a href="{{ route('karyawan.booking.index') }}" class="flex items-center hover:text-lime-500">
                             <i class="fas fa-pen-nib mr-2"></i> Booking
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('karyawan.boking.selesai') }}" class="flex items-center hover:text-lime-500">
+                        <a href="{{ route('karyawan.booking.selesai') }}" class="flex items-center hover:text-lime-500">
                             <i class="fas fa-check-square mr-2"></i> Selesai
                         </a>
                     </li>
@@ -52,7 +52,7 @@
                     <li>
                         {{-- Tambahkan prefix 'karyawan.' --}}
                         <a href="{{ route('karyawan.laporan.index') }}" class="flex items-center hover:text-lime-500">
-                            <i class="fas fa-money-bill-wave mr-2"></i> Laporan
+                            <i class="fas fa-money-bill-wave mr-2"></i> Keuangan
                         </a>
                     </li>
                     <li>

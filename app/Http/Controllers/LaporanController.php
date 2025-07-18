@@ -33,7 +33,7 @@ class LaporanController extends Controller
     public function store(Request $request)
     {
         Laporan::create($request->all());
-        return redirect()->route('laporan.index')->with('success', 'Laporan berhasil ditambahkan');
+        return redirect()->route('karyawan.laporan.index')->with('success', 'Laporan berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -46,12 +46,12 @@ class LaporanController extends Controller
     {
         $laporan = Laporan::findOrFail($id);
         $laporan->update($request->all());
-        return redirect()->route('laporan.index')->with('success', 'Laporan berhasil diperbarui');
+        return redirect()->route('karyawan.laporan.index')->with('success', 'Laporan berhasil diperbarui');
     }
 
     public function destroy($id)
     {
         Laporan::findOrFail($id)->delete();
-        return redirect()->route('laporan.index')->with('success', 'Laporan berhasil dihapus');
+        return redirect()->route('karyawan.laporan.index')->with('success', 'Laporan berhasil dihapus');
     }
 }

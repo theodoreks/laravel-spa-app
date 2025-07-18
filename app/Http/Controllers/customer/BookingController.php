@@ -100,4 +100,6 @@ class BookingController extends Controller
 
         return view('customer.pembayaran', compact('booking', 'snapToken'));
     }
+
+   
 }

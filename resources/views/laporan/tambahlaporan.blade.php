@@ -14,7 +14,7 @@
       <i class=""></i> Tambah Laporan Booking
     </h2>
 
-    <form action="{{ route('laporan.store') }}" method="POST" class="space-y-6">
+    <form action="{{ route('karyawan.laporan.store') }}" method="POST" class="space-y-6">
       @csrf
 
       <!-- Kode Booking -->
@@ -72,7 +72,7 @@
           class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">
           Simpan
         </button>
-        <a href="{{ route('laporan.index') }}"
+        <a href="{{ route('karyawan.laporan.index') }}"
           class="bg-gray-400 text-white px-6 py-3 rounded-md hover:bg-gray-500 focus:ring-2 focus:ring-gray-500">
           Batal
         </a>

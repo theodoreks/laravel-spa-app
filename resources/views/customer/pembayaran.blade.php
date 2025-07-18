@@ -8,7 +8,7 @@
 <header class="bg-gray-200 py-4">
     <h1 class="text-left text-lg font-medium pl-4">Pembayaran</h1>
 </header>
-<section class="p-6 max-w-6xl mx-auto mt-6 bg-[#6E7F5E] rounded-lg">
+<section class="p-6 max-w-6xl mx-auto mt-6 mb-6 bg-[#6E7F5E] rounded-lg">
     <div class="grid md:grid-cols-2 gap-10 bg-[#6E7F5E] p-6 rounded-lg shadow text-white">
         <div>
             <h3 class="text-lg font-bold mb-4">Booking-{{ $booking->id }}</h3>
@@ -23,34 +23,28 @@
 
         <div>
             <h3 class="text-lg font-semibold mb-4">Konfirmasi pembayaran</h3>
-            <form action="#" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div class="space-y-4">
                 @csrf
                 <div>
                     <label class="block mb-1">Jumlah Bayar</label>
                     <input type="text" value="Rp. {{ number_format($booking->promo->harga) }}" class="w-full border px-3 py-2 rounded text-black bg-gray-200" readonly>
                 </div>
                 {{-- 2. Ganti form upload dengan tombol bayar --}}
-                <button id="pay-button" class="bg-green-700 text-white px-6 py-2 rounded w-full">Bayar Sekarang</button>
+                <button type="button" id="pay-button" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded w-full hover:bg-blue-700">Bayar Sekarang</button>
             </div>
         </div>
     </div>
-    <div class="text-center mt-8">
-        <h3 class="text-lg font-semibold mb-3 text-white">Scan Disini Untuk Pembayaran</h3>
-        <p class="mb-2 text-white">QRIS</p>
-        <img src="{{ asset('images/qris.png') }}" alt="QRIS" class="mx-auto w-52">
-    </div>
+    
 </section>
 <script type="text/javascript">
     var payButton = document.getElementById('pay-button');
     payButton.addEventListener('click', function () {
         window.snap.pay('{{ $snapToken }}', {
             onSuccess: function(result){
-                /* Anda bisa tambahkan notifikasi di sini */
-                alert("payment success!"); 
-                console.log(result);
-                // Redirect atau update UI jika perlu
-                window.location.href = '/'; // Contoh redirect ke beranda
-            },
+    alert("Payment success!"); 
+    // This line now redirects to the promo list page
+    window.location.href = "{{ route('customer.promo') }}"; 
+},
             onPending: function(result){
                 /* Anda bisa tambahkan notifikasi di sini */
                 alert("wating your payment!"); 

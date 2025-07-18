@@ -80,6 +80,14 @@
  </div>
             <div>
                 <h4 class="font-semibold mb-2">Alamat Hijau Spa</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.2684732682088!2d103.9665991!3d1.106825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98b94c86d49c9%3A0x999ba4803b9d980a!2sHijau%20Spa%20Tiban!5e0!3m2!1sen!2sid!4v1752714375839!5m2!1sen!2sid" 
+                    width="300" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
                 <p>Perumahan Mekarsari, Jl. Titan Raya No. 8, Buah Batu</p>
                 <p>Instagram: hijauspa</p>
             </div>
