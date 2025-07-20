@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-white p-8 rounded shadow w-full max-w-full">
     <h3 class="text-md mb-6 font-semibold">Edit Promo</h3>
-    <form action="{{ route('promo.update', $promo->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6 w-full">
+    <form action="{{ route('karyawan.promo.update', $promo->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6 w-full">
         @csrf
         @method('PUT')
         <div>

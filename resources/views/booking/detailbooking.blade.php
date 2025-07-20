@@ -22,7 +22,7 @@
     <p class="font-semibold mb-2">Detail Treatment:</p>
     <p>{{ $booking->promo->nama_promo }} ({{ $booking->promo->durasi }} Menit)</p>
     <p class="font-bold text-lg">Total Bayar: Rp. {{ number_format($booking->promo->harga) }}</p>
-    <p>Status Pembayaran: <span class="font-semibold text-green-600">{{ $booking->status_pembayaran }}</span></p>
+    <p>Status Pembayaran: <span class="font-semibold text-green-600">Lunas</span></p>
 </div>
 <div class="mt-6 flex justify-end">
     <form action="{{ route('karyawan.booking.finish', $booking->id) }}" method="POST">

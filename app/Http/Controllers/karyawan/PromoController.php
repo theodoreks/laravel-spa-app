@@ -69,4 +69,16 @@ class PromoController extends Controller
     
     return redirect()->route('karyawan.promo.index')->with('success', 'Promo berhasil diperbarui!');
 }
+
+ public function destroy(Promo $promo)
+    {
+        // Optional: Delete the associated photo file from storage
+        if ($promo->foto) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($promo->foto);
+        }
+
+        $promo->delete();
+        
+        return redirect()->route('karyawan.promo.index')->with('success', 'Promo berhasil dihapus!');
+    }
 }

@@ -44,7 +44,7 @@
                     <td class="border px-4 py-2">{{ $booking->therapist }}</td>
                     <td class="border px-4 py-2">Rp{{ number_format($booking->promo->harga, 0, ',', '.') }}</td>
                     <td class="border px-4 py-2">{{ $booking->promo->durasi }} Menit</td>
-                    <td class="border px-4 py-2">{{ $booking->status_pembayaran }}</td>
+                    <td class="border px-4 py-2">Lunas</td>
                 </tr>
                 @empty
                 <tr>

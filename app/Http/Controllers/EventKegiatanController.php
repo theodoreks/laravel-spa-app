@@ -38,7 +38,7 @@ class EventKegiatanController extends Controller
 
         EventKegiatan::create($data);
 
-        return redirect()->route('event.index')->with('success', 'Event berhasil ditambahkan.');
+        return redirect()->route('karyawan.event.index')->with('success', 'Event berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -71,7 +71,7 @@ class EventKegiatanController extends Controller
 
         $event->update($data);
 
-        return redirect()->route('event.index')->with('success', 'Event berhasil diperbarui.');
+        return redirect()->route('karyawan.event.index')->with('success', 'Event berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -85,6 +85,6 @@ class EventKegiatanController extends Controller
 
         $event->delete();
 
-        return redirect()->route('event.index')->with('success', 'Event berhasil dihapus.');
+        return redirect()->route('karyawan.event.index')->with('success', 'Event berhasil dihapus.');
     }
 }
