@@ -15,24 +15,31 @@ class AuthController extends Controller
   return view('login.login'); 
  }
     public function login(Request $request)
-  {
-  $credentials = $request->validate([
- 'username' => 'required|string',
-  'password' => 'required|string',
-  ]);
- $user = User::where('username', $credentials['username'])->first();
- if (!$user || !Hash::check($credentials['password'], $user->password)) {
- return back()->withErrors(['username' => 'Username atau password salah.'])->withInput();
- }
-  Auth::login($user);
-  $request->session()->regenerate();
-  return match ($user->role) {
- 'owner'  => redirect()->intended(route('owner.dashboard')),
- 'karyawan' => redirect()->intended(route('karyawan.dashboard')),
-'customer' => redirect()->intended(route('customer.beranda')),
- default  => redirect('/login')->withErrors(['username' => 'Role tidak dikenali.']),
-  };
- }
+{
+    $credentials = $request->validate([
+        'username' => 'required|string',
+        'password' => 'required|string',
+    ]);
+
+    // Attempt to log the user in
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+        $user = Auth::user();
+
+        // Check the user's role and redirect accordingly
+        return match ($user->role) {
+            'owner'    => redirect()->intended(route('owner.dashboard')),
+            'karyawan' => redirect()->intended(route('karyawan.dashboard')),
+            'customer' => redirect()->intended(route('customer.beranda')),
+            default    => redirect('/'), // Fallback redirect
+        };
+    }
+
+    // If login fails, return back with an error
+    return back()->withErrors([
+        'username' => 'The provided credentials do not match our records.',
+    ])->onlyInput('username');
+}
 
     public function logout(Request $request)
   {
@@ -50,9 +57,8 @@ $request->session()->regenerateToken();
     /**
      * Menangani proses registrasi user baru.
      */
-  public function register(Request $request)
+ public function register(Request $request)
 {
-    // 1. Validasi input
     $request->validate([
         'nama_lengkap'  => 'required|string|max:100',
         'jenis_kelamin' => 'required|in:Laki-Laki,Perempuan',
@@ -61,7 +67,7 @@ $request->session()->regenerateToken();
         'password'      => 'required|string|min:6|confirmed',
     ]);
 
-    // 2. Buat user baru
+    // Create the user
     $user = User::create([
         'nama_lengkap'  => $request->nama_lengkap,
         'jenis_kelamin' => $request->jenis_kelamin,
@@ -71,11 +77,12 @@ $request->session()->regenerateToken();
         'role'          => 'customer', 
     ]);
 
-    // 3. TAMBAHKAN BARIS INI
-    // Assign the role using the Spatie package method
+    // Assign the role using the Spatie package
     $user->assignRole('customer');
 
-    // Redirect to the login page with a success message.
-    return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
+    // Redirect to the login page with a success message
+    return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
 }
+
+
 }
