@@ -1,4 +1,4 @@
-@extends('Owner.Layouts.app')
+@extends('Owner.layouts.app')
 
 @section('content')
 <h1 class="text-xl font-semibold mb-4">Tambah Karyawan</h1>

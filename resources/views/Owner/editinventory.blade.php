@@ -1,4 +1,4 @@
-@extends('Owner.Layouts.app')
+@extends('Owner.layouts.app')
 
 @section('title', 'Edit Inventory')
 
