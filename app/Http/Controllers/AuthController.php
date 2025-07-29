@@ -74,11 +74,11 @@ $request->session()->regenerateToken();
         'no_hp'         => $request->no_hp,
         'username'      => $request->username,
         'password'      => Hash::make($request->password),
-        'role'          => 'owner', 
+        'role'          => 'karyawan', 
     ]);
 
     // Assign the role using the Spatie package
-    $user->assignRole('owner');
+    $user->assignRole('karyawan');
 
     // Redirect to the login page with a success message
     return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
