@@ -55,4 +55,5 @@
         <a href="{{ route('owner.karyawan.index') }}" class="text-gray-600 hover:underline">Kembali</a>
     </div>
 </form>
+<!-- -->
 @endsection
