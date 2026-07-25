@@ -6,7 +6,7 @@ Aplikasi **Hijau Spa** dibangun menggunakan *framework* **Laravel 12** dan diran
 
 ---
 
-## 🌟 Fitur Utama Berdasarkan Peran
+##  Fitur Utama Berdasarkan Peran
 
 Sistem ini mendukung 3 peran utama (*user roles*):
 
@@ -25,7 +25,7 @@ Sistem ini mendukung 3 peran utama (*user roles*):
 
 ---
 
-## 🛠️ Tahapan Pengembangan
+##  Tahapan Pengembangan
 
 Proses pengembangan proyek ini dilakukan secara terstruktur melalui beberapa tahapan:
 1. **Analisis Kebutuhan:** Mengidentifikasi alur kerja bisnis spa dan kebutuhan tiap peran.
@@ -35,7 +35,7 @@ Proses pengembangan proyek ini dilakukan secara terstruktur melalui beberapa tah
 
 ---
 
-## 🚀 Panduan Instalasi & Pengaturan Lokal
+##  Panduan Instalasi & Pengaturan Lokal
 
 Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal Anda:
 
