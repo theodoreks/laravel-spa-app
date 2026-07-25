@@ -1,61 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Hijau Spa - Sistem Informasi Operasional Spa Kecantikan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi berbasis web untuk mengelola operasional usaha **Spa Kecantikan** secara efisien, modern, dan terorganisir. Proyek ini hadir sebagai solusi digital untuk menggantikan pencatatan manual yang rentan terhadap kesalahan (*human error*) serta sulit diakses secara *real-time*.
 
-## About Laravel
+Aplikasi **Hijau Spa** dibangun menggunakan *framework* **Laravel 12** dan dirancang untuk memenuhi kebutuhan berbagai tingkat pengguna dalam ekosistem bisnis spa.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Fitur Utama Berdasarkan Peran
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Sistem ini mendukung 3 peran utama (*user roles*):
 
-## Learning Laravel
+*   **Customer (Pelanggan)**
+    *   Melakukan pemesanan (*booking*) layanan spa.
+    *   Melihat promo dan penawaran menarik.
+    *   Memberikan kritik dan saran untuk peningkatan layanan.
+*   **Karyawan**
+    *   Mengelola jadwal dan data pemesanan (*booking*).
+    *   Membuat dan mengonfigurasi promo.
+    *   Mencatat absensi harian.
+    *   Mengatur dan memantau stok inventaris.
+*   **Owner (Pemilik Usaha)**
+    *   Memantau laporan *booking* dan pendapatan.
+    *   Pengawasan menyeluruh (*overview*) aktivitas dan strategi bisnis secara tepat.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🛠️ Tahapan Pengembangan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Proses pengembangan proyek ini dilakukan secara terstruktur melalui beberapa tahapan:
+1. **Analisis Kebutuhan:** Mengidentifikasi alur kerja bisnis spa dan kebutuhan tiap peran.
+2. **Perancangan Sistem:** Desain arsitektur basis data, *flowchart*, dan antarmuka pengguna (*UI/UX*).
+3. **Implementasi:** Pengkodean modul menggunakan Laravel 12.
+4. **Pengujian (*Testing*):** Pengujian seluruh fitur untuk memastikan kestabilan, akurasi data, dan keandalan sistem.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🚀 Panduan Instalasi & Pengaturan Lokal
 
-### Premium Partners
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal Anda:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+### 1. Clone Repositori
+Buka terminal / command prompt, lalu *clone* repositori dan masuk ke direktori proyek:
+```bash
+git clone <URL_REPOSITORI_ANDA>
+cd nama-folder-proyek
+2. Install Dependensi PHP
+Jalankan Composer untuk mengunduh seluruh package PHP yang dibutuhkan:
 
-## Contributing
+Bash
+composer install
+3. Salin File Environment
+Buat file .env baru dengan menyalin dari .env.example:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Bash
+# Windows (CMD)
+copy .env.example .env
 
-## Code of Conduct
+# Linux / macOS / Git Bash
+cp .env.example .env
+4. Generate Application Key
+Buat kunci enkripsi aplikasi Laravel baru:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Bash
+php artisan key:generate
+5. Konfigurasi Database & Migrasi
+Buka file .env menggunakan editor teks (misal: VS Code).
 
-## Security Vulnerabilities
+Sesuaikan konfigurasi database berikut:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Code snippet
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_hijau_spa
+DB_USERNAME=root
+DB_PASSWORD=
+Pastikan service database (seperti MySQL/MariaDB di XAMPP/Docker) sudah berjalan, lalu jalankan migrasi tabel:
 
-## License
+Bash
+php artisan migrate
+(Opsional) Jika tersedia data awal / dummy:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Bash
+php artisan db:seed
+6. Install & Build Aset Frontend
+Jika menggunakan Vite/Mix atau pustaka frontend (Tailwind/Bootstrap/Vue/React):
+
+Bash
+npm install
+npm run dev
+7. Jalankan Server Lokal
+Jalankan server pengembangan Laravel:
+
+Bash
+php artisan serve
+Buka alamat http://127.0.0.1:8000
